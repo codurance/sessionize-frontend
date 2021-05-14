@@ -32,17 +32,35 @@ jobs:
           npm run build
           npm run test
 
-  # This workflow contains a single job called "build"
-  build-docker-container:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+  build-container-and-deploy:
     needs: build
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Placeholder for Docker container build
-        run: echo 'Come back and make this work!'
+    # checkout the repo
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@master
+        
+    - name: 'Login via Azure CLI'
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - uses: azure/docker-login@v1
+      with:
+        login-server: sessionizetest.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    - run: |
+        docker build --target production -t sessionizefrontend.azurecr.io/sessionizefrontend:1.0.0 .
+        docker push sessionizefrontend.azurecr.io/sessionizefrontend:1.0.0
+    - name: 'Deploy to Azure Container Instances'
+      uses: 'azure/aci-deploy@v1'
+      with:
+        resource-group: Sessionize-test
+        dns-name-label: sessionizefrontend
+        image: sessionizefrontend.azurecr.io/sessionizefrontend:1.0.0
+        registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+        registry-username: ${{ secrets.REGISTRY_USERNAME }}
+        registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+        name: sessionizefrontend
+        location: 'west europe'
