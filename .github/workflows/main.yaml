@@ -51,14 +51,14 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - run: |
-        docker build --target production -t sessionizefrontend.azurecr.io/sessionizefrontend:1.0.0 .
-        docker push sessionizefrontend.azurecr.io/sessionizefrontend:1.0.0
+        docker build --target production -t sessionizetest.azurecr.io/sessionizefrontend:1.0.0 .
+        docker push sessionizetest.azurecr.io/sessionizefrontend:1.0.0
     - name: 'Deploy to Azure Container Instances'
       uses: 'azure/aci-deploy@v1'
       with:
         resource-group: Sessionize-test
         dns-name-label: sessionizefrontend
-        image: sessionizefrontend.azurecr.io/sessionizefrontend:1.0.0
+        image: sessionizetest.azurecr.io/sessionizefrontend:1.0.0
         registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
         registry-username: ${{ secrets.REGISTRY_USERNAME }}
         registry-password: ${{ secrets.REGISTRY_PASSWORD }}
