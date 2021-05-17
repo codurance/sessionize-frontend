@@ -11,7 +11,7 @@ const post = async (url: string, options : any) => {
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(options.body)
   })
-  return response.json()
+  return response
 }
 
 export default post
