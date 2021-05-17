@@ -1,12 +1,26 @@
 import React from 'react';
 import GoogleLogin, {GoogleLoginResponse, GoogleLoginResponseOffline} from "react-google-login";
-
+const base_url = "http://localhost:8080/";
+const auth_url = "auth"
 
 function App() {
 
   const responseGoogle = (response : GoogleLoginResponse | GoogleLoginResponseOffline) => {
     console.log(response);
+    fetch(base_url + auth_url, {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      referrerPolicy: 'no-referrer',
+      body: JSON.stringify((response as GoogleLoginResponse).profileObj.email)
+    });
   }
+
+
 
   return (
     <div className="App">
