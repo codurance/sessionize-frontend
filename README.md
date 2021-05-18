@@ -18,13 +18,13 @@ git clone git@github:codurance/sessionize-slackbot.git
 
 Then, install the dependencies for the app within the root directory of the project:
 
-```shell
+```sh
 npm install
 ```
 
 Then, run npm start to fire up the project in development mode:
 
-```shell
+```console
 npm start
 ```
 
