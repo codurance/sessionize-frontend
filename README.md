@@ -12,7 +12,7 @@ Sessionize is a test driven React app, which utilizes TypeScript for type safety
 
 First, clone the repo:
 
-```shell
+```console
 git clone git@github:codurance/sessionize-slackbot.git
 ```
 
