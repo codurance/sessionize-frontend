@@ -4,7 +4,7 @@
 Sessionize is the final project for the 1st Academy group of 2021. It is pair matching app designed to match people looking for people to pair program with.
 This repo represents the frontend aspect of that project.
 
-## Overview
+## Overview
 
 Sessionize is a test driven React app, which utilizes TypeScript for type safety.
 
@@ -12,23 +12,23 @@ Sessionize is a test driven React app, which utilizes TypeScript for type safety
 
 First, clone the repo:
 
-```
+```shell
 git clone git@github:codurance/sessionize-slackbot.git
 ```
 
 Then, install the dependencies for the app within the root directory of the project:
 
-```
+```shell
 npm install
 ```
 
 Then, run npm start to fire up the project in development mode:
 
-```
+```shell
 npm start
 ```
 
-### Docker Containerization
+### Docker Containerization
 
 This repo utilizes Docker containerization for deployment to the cloud (in this case, Azure). Details for this process can be found in Dockerfile.
 
@@ -41,11 +41,11 @@ The Dockerfile is very simple. The process is essentially as follows here:
 5. Expose the port.
 6. Run.
 
-### GitHub Actions
+### GitHub Actions
 
 This repo utilizes the GitHub Action CI feature, which run from the following file:
 
-.github/workflows/main.yaml
+`.github/workflows/main.yaml`
 
 Upon pushing to the main branch, or making pull requests, the GitHub Actions service will install dependencies, build and test the project.
 
