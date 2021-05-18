@@ -4,6 +4,7 @@ import post from "./api/post";
 import {AUTH, BASE} from "./endpoints";
 import {UnauthenticatedApp} from "./components/UnauthenticatedApp";
 import {AuthenticatedApp} from "./components/AuthenticatedApp";
+import get from "./api/get";
 
 
 function App() {
@@ -15,10 +16,9 @@ function App() {
     console.log(response);
 
     if ("profileObj" in response) {
-      post(BASE + AUTH,
+      get(BASE + AUTH,
         {
-          accessToken: response.accessToken,
-          body: {email: response.profileObj.email}
+          tokenId: response.tokenId,
         })
         .then(res => res.json())
         .then(data => setUser(data))
@@ -28,7 +28,7 @@ function App() {
 
   const onLogout = () => setUser(null)
 
-  return user ? <AuthenticatedApp user={user} logout={onLogout}/> : <UnauthenticatedApp handleLogin={onAuthenticate}/>
+  return (user ? <AuthenticatedApp user={user} logout={onLogout}/> : <UnauthenticatedApp handleLogin={onAuthenticate}/>)
 }
 
 export default App;
