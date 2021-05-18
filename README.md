@@ -12,19 +12,19 @@ Sessionize is a test driven React app, which utilizes TypeScript for type safety
 
 First, clone the repo:
 
-```console
+```shellscript
 git clone git@github:codurance/sessionize-slackbot.git
 ```
 
 Then, install the dependencies for the app within the root directory of the project:
 
-```sh
+```shellscript
 npm install
 ```
 
 Then, run npm start to fire up the project in development mode:
 
-```console
+```shellscript
 npm start
 ```
 
