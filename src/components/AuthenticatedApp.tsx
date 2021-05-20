@@ -4,7 +4,7 @@ export const AuthenticatedApp = ({user, logout} : any) => {
   return (
     <>
       <h1>
-        {`Hello, ${user.email}!`}
+        {`Hello, ${user.name}!`}
       </h1>
       <button onClick={logout}>
         Logout
