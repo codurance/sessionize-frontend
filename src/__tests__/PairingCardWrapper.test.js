@@ -20,7 +20,8 @@ describe('PairingCardWrapper', () => {
 
     nock(BASE, {
         reqheaders: {
-            authorization: 'abc',
+            'Content-Type': 'application/json',
+            Authorization: 'abc',
         }}).get("/pairings")
         .reply(200, pairing)
 
