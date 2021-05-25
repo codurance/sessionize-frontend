@@ -1,18 +1,11 @@
 import React from "react";
+import {PairingDetails} from "./types";
 
-interface PairingDetails {
-    familyName: string,
-    givenName: string,
-    imageUrl: string,
-    language: string,
-    time: string,
-    date: string,
-    status: string
+type Props = {
+    pairingDetails : PairingDetails
 }
 
-type PairingCardProps = PairingDetails
-
-export const PairingCard = ({pairingDetails} : any) => {
+export const PairingCard = ({pairingDetails} : Props) => {
     return (
         <>
            <p>Upcoming Pairing</p>

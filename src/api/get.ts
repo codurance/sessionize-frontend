@@ -5,7 +5,7 @@ const get = async (url: string, options : any) => {
     credentials: 'same-origin',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `${options.tokenId}`
+      Authorization: `${options.tokenId}`
     },
     referrerPolicy: 'no-referrer',
   })

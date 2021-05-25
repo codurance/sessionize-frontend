@@ -9,12 +9,12 @@ body {
 
 @font-face {
   font-family: login-font;
-  src: url(./Assets/Orbitron/orbitron-black.otf);
+  src: url(assets/Orbitron/orbitron-black.otf);
 }
 
 @font-face {
   font-family: login-subtitle-font;
-  src: url(./Assets/Orbitron/orbitron-light.otf);
+  src: url(assets/Orbitron/orbitron-light.otf);
 }
 
 

@@ -4,8 +4,8 @@ import GoogleLogin from "react-google-login";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import login_img from '../Assets/login_img.jpeg';
-import logo from '../Assets/Logo.svg';
+import login_img from '../assets/login_img.jpeg';
+import logo from '../assets/Logo.svg';
 
 
 export const UnauthenticatedApp = ({handleLogin} : any) => {

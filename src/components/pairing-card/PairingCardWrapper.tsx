@@ -1,16 +1,22 @@
 import React, {useEffect, useState} from "react";
-import {PairingCard} from "./PairingCard";
+import {PairingCard } from "./PairingCard";
 import get from "../../api/get";
 import {BASE} from "../../endpoints";
+import {PairingDetails} from "./types";
+
+type StateProps = PairingDetails | null
 
 const PairingCardWrapper = () => {
-    const [pairing, setPairing] = useState(null)
+
+    const [pairing, setPairing] = useState<StateProps>(null)
+
     useEffect(() => {
-        get(BASE + "/pairings", "abc")
+
+        get(BASE + "/pairings", {tokenId: "abc"})
             .then(res => res.json())
             .then(data => setPairing(data))
             .catch(error => console.log(error))
-    }, [get])
+    }, [pairing])
     return (
         <>
             {pairing && <PairingCard pairingDetails={pairing}/>}
