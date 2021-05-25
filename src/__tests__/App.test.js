@@ -6,8 +6,6 @@ import userEvent from "@testing-library/user-event";
 const nock = require('nock');
 
 describe('App', () => {
-
-
     jest.mock("react-google-login", () => ({
         profileObj: {
             email: "andras.dako@codurance.com",
