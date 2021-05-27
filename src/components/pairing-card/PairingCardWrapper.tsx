@@ -6,17 +6,18 @@ import {PairingDetails} from "./types";
 
 type StateProps = PairingDetails | null
 
-const PairingCardWrapper = () => {
+const PairingCardWrapper = ({tokenId} : any) => {
 
     const [pairing, setPairing] = useState<StateProps>(null)
 
     useEffect(() => {
 
-        get(BASE + "/pairings", {tokenId: "abc"})
+        get(BASE + "/pairings", {tokenId: tokenId})
             .then(res => res.json())
             .then(data => setPairing(data))
             .catch(error => console.log(error))
     }, [pairing])
+
     return (
         <>
             {pairing && <PairingCard pairingDetails={pairing}/>}

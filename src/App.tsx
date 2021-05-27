@@ -10,11 +10,14 @@ function App() {
 
   //TODO: sort out types
   const [user, setUser] = useState<any>(null)
+  const [tokenId, setTokenId] = useState<string>("")
 
   const onAuthenticate = (response: GoogleLoginResponse | GoogleLoginResponseOffline) => {
     console.log(response);
 
     if ("profileObj" in response) {
+      setTokenId(response.tokenId)
+
       get(BASE + AUTH,
         {
           tokenId: response.tokenId,
@@ -27,7 +30,7 @@ function App() {
 
   const onLogout = () => setUser(null)
 
-  return (user ? <AuthenticatedApp user={user} logout={onLogout}/> : <UnauthenticatedApp handleLogin={onAuthenticate}/>)
+  return (user ? <AuthenticatedApp user={user} tokenId={tokenId} logout={onLogout}/> : <UnauthenticatedApp handleLogin={onAuthenticate}/>)
 }
 
 export default App;
