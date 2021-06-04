@@ -6,24 +6,34 @@ import {PairingDetails} from "./types";
 
 type StateProps = PairingDetails | null
 
-type PairingCardProps = {
-    tokenId: string,
-}
-
-const PairingCardWrapper = ({tokenId} : PairingCardProps) => {
-
-    const [pairing, setPairing] = useState<StateProps>(null)
+const PairingCardWrapper = ({tokenId} : any) => {
+    const [pairings, setPairings] = useState<Array<StateProps> | []>([])
 
     useEffect(() => {
+
         get(BASE + "/pairings", {tokenId: tokenId})
             .then(res => res.json())
-            .then(data => setPairing(data))
+            .then(data => setPairings(data))
             .catch(error => console.log(error))
     }, [tokenId])
 
+    if (pairings.length > 1) {
+        return (
+            <>
+                {
+                    pairings.map((pairing:any) =>
+                        <PairingCard pairingDetails={pairing}/>
+                    )
+
+                }
+            </>
+        )
+    }
+
     return (
         <>
-            {pairing && <PairingCard pairingDetails={pairing}/>}
+
+
         </>
     )
 }
