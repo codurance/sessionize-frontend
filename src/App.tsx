@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {GoogleLoginResponse, GoogleLoginResponseOffline} from "react-google-login";
-import {AUTH, BASE, BASE_PROD} from "./endpoints";
+import {AUTH, BASE_PROD} from "./endpoints";
 import {UnauthenticatedApp} from "./components/UnauthenticatedApp";
 import {AuthenticatedApp} from "./components/AuthenticatedApp";
 import get from "./api/get";
@@ -17,7 +17,7 @@ function App() {
     if ("profileObj" in response) {
       setTokenId(response.tokenId)
 
-      get(BASE + AUTH,
+      get(BASE_PROD + AUTH,
         {
           tokenId: response.tokenId,
         })
