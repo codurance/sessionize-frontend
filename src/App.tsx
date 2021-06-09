@@ -8,7 +8,6 @@ import get from "./api/get";
 
 function App() {
 
-  //TODO: sort out types
   const [user, setUser] = useState<any>(null)
   const [tokenId, setTokenId] = useState<string>("")
 
