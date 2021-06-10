@@ -14,7 +14,7 @@ const PairingCardWrapper = ({email, tokenId} : any) => {
             .then(res => res.json())
             .then(data => setPairings(data))
             .catch(error => console.log(error))
-    }, [tokenId])
+    }, [tokenId, email])
 
     if (pairings.length > 1) {
         return (
