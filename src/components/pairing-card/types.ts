@@ -1,6 +1,5 @@
 export interface PairingDetails {
-  familyName: string,
-  givenName: string,
+  name: string,
   imageUrl: string,
   language: string,
   time: string,

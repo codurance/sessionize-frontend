@@ -1,17 +1,13 @@
 import {render, waitFor} from '@testing-library/react'
 import React from "react";
 import PairingCardWrapper from "../components/pairing-card/PairingCardWrapper";
+import {PairingCard} from "../components/pairing-card/PairingCard";
+import {pairing} from "../__mocks__/pairing";
 
 describe('PairingCardWrapper', () => {
-
-    it('should render the pairing card wrapper', async () => {
-        const {getByText} = render(<PairingCardWrapper/>)
-        await waitFor(() => expect(getByText('Upcoming Pairing')).toBeInTheDocument())
+    it('should render the pairing details',  async () =>{
+        const {queryByText} = render(<PairingCard pairingDetails={pairing}/>)
+        await waitFor(() => expect(queryByText('Andras Dako')).toBeInTheDocument())
     })
-
-    // it('should render the pairing details',  async () =>{
-    //     const {queryByText} = render(<PairingCardWrapper/>)
-    //     await waitFor(() => expect(queryByText('Andras')).toBeInTheDocument())
-    // })
 })
 

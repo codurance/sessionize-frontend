@@ -14,7 +14,7 @@ export const PairingCard = ({pairingDetails} : Props) => {
             <Card style={{ width: '18rem' }}>
                 {/*<Card.Img variant="top" style={{ height: '18vw' }} src={pairingDetails.imageUrl} />*/}
                 <Card.Body>
-                    <Card.Title>{pairingDetails.givenName} {pairingDetails.familyName}</Card.Title>
+                    <Card.Title>{pairingDetails.name}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">Upcoming Pairing</Card.Subtitle>
                     <Card.Text>
                     </Card.Text>

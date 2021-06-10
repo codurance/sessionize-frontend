@@ -14,7 +14,7 @@ export const AuthenticatedApp = ({user, tokenId, logout} : any) => {
                 </h1>
             </Row>
             <Row>
-                <PairingCardWrapper tokenId = {tokenId}/>
+                <PairingCardWrapper tokenId={tokenId}/>
             </Row>
 
         </Container>
